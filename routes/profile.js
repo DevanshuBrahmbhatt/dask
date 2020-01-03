@@ -5,7 +5,7 @@ const conn=require('../config/database');
 
 
 
-          
+          //Profile  passport_setup vadi ahiya joiea 6iea.
 
 
     var personobj={};
