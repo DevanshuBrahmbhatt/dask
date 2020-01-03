@@ -23,10 +23,10 @@ passport.deserializeUser((profile,done)=>{
 
     
     conn.query('SELECT * FROM profile WHERE  google_id=?',profile.id,(err,response,meta)=>{
-        done(null,profile)
+        done(null,response[0])
     });
 
-    console.log(profile);
+  //  console.log(profile);
     
 });
 

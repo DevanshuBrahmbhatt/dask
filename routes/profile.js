@@ -1,13 +1,18 @@
 
 const router = require("express").Router();
 const passport = require("passport");
+const conn=require('../config/database');
 
 
-var personobj={};
 
           
 
-conn.query("SELECT * FROM profile WHERE google_id=? ",profile.id, (err, result) => {
+
+    var personobj={};
+
+console.log("here pro");
+    
+conn.query("SELECT * FROM profile where google_id=?",id, (err, result) => {
     
     console.log(conn.query);
     if(err){
@@ -19,8 +24,12 @@ conn.query("SELECT * FROM profile WHERE google_id=? ",profile.id, (err, result) 
 
         personobj={print:result};
         console.log(personobj);
-      // res.render('profile',personobj);
+    //    res.render("profile");
         
     }
 });
 
+
+
+
+module.exports = router;

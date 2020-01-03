@@ -6,6 +6,7 @@ const path = require('path');
 const passport = require('passport');
 
 const authRoutes = require('./routes/auth');
+const profileRoutes=require('./routes/profile');
 const passportSetup = require('./config/passport_setup');
 
 const conn = require('./config/database');
@@ -33,7 +34,9 @@ app.use(passport.session());
 
 //app.use(passport.initialize());
 
+
 app.use('/auth', authRoutes);
+app.use('/profile', profileRoutes);
 
 
 
@@ -56,6 +59,8 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
+
+
 app.get('/askquestion', (req, res)=> {
     res.render('askquestion');
 });
@@ -69,6 +74,8 @@ app.get('/questions', (req, res)=> {
 app.get('/answer', (req, res)=> {
     res.render('answer');
 });
+
+
 
 
 // set the app to listen on the port
