@@ -5,6 +5,15 @@ const conn=require('../config/database');
 
 
 
+var id;
+passport.deserializeUser((profile, done) => {
+
+
+      id=profile.id;
+     done(null,profile);
+    });
+
+
           //Profile  passport_setup vadi ahiya joiea 6iea.
 
 
@@ -12,7 +21,7 @@ const conn=require('../config/database');
 
 console.log("here pro");
     
-conn.query("SELECT * FROM profile where google_id=?",id, (err, result) => {
+conn.query('SELECT * FROM profile WHERE  google_id=?',[id], (err, result) => {
     
     console.log(conn.query);
     if(err){
