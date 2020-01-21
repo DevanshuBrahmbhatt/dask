@@ -26,6 +26,7 @@ router.get(
 router.get("/google/redirect", passport.authenticate("google"), (req, res) => {
 
 res.render("index");
+ console.log(req.user);
 
 });
   console.log("getting index");

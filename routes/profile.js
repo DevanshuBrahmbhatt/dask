@@ -7,10 +7,10 @@ const conn=require('../config/database');
 
 router.get('/', (req, res) => {
 
-console.log(profile);
+// console.log(profile);
 
     console.log("getting req");
-    console.log(req.id);
+    // console.log(req.id);
 
    // req.json(Profile);
     // console.log( req.json(profile));
@@ -24,7 +24,7 @@ console.log(profile);
 
 console.log("here pro");
     
-conn.query('SELECT * FROM profile where google_id=?',profile.id, (err, result) => {
+conn.query('SELECT * FROM profile where google_id=?',req.id, (err, result) => {
     
     console.log(conn.query);
 
@@ -36,7 +36,7 @@ conn.query('SELECT * FROM profile where google_id=?',profile.id, (err, result) =
     else{
 
         personobj={print:result};
-        console.log(personobj);
+        // console.log(personobj);
          res.render("profile");
         
     }

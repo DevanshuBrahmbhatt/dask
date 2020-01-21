@@ -5,18 +5,18 @@ const conn=require('./database');
 
 
 
-passport.serializeUser((profile, done) => {
+passport.serializeUser((user, done) => {
 
-    done(null, profile);
+    done(null, user);
   
 });
 
-passport.deserializeUser((id,done)=>{
+passport.deserializeUser((user,done)=>{
 
     
-    conn.query('SELECT * FROM profile WHERE google_id=?',id,(err,response,meta)=>{
-       console.log(id);
-        done(null,response[0])
+    conn.query('SELECT * FROM profile WHERE google_id=?',user.id,(err,user)=>{
+    //    console.log(id);
+       done(null,user);
     });
 
 });
@@ -67,7 +67,7 @@ passport.use(
                                 console.log(err);
                             }
                             else{
-                                console.log(result);
+                                // console.log(result);
                                 done(null, {"name":name,"google_id":id,"picture":picture});
                                                           
                             }

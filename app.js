@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const path = require('path');
 const passport = require('passport');
+var session = require("express-session");
 
 const authRoutes = require('./routes/auth');
 const profileRoutes=require('./routes/profile');
@@ -30,6 +31,7 @@ app.set('view engine', 'ejs'); // configure template engine
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); // parse form data client
 app.use(express.static(path.join(__dirname, 'public'))); // configure express to use public folder
+// app.use(express.cookieParser());
 app.use(fileUpload()); // configure fileupload
 
 app.use(cs({
@@ -44,19 +46,19 @@ app.use(passport.session());
 
 
 app.use('/auth', authRoutes);
-//app.use('/profile', profileRoutes);
+app.use('/profile', profileRoutes);
 app.use('/questions',questionRoutes);
 
 
 // app.use('/askquestion',askquestionRoutes);
 
 
-app.get('/profile',(req,res)=>{
+// app.get('/profile',(req,res)=>{
 
-res.json(authRoutes);
-console.log(res.json(authRoutes));
+// // res.json(authRoutes);
+// // console.log(res.json(authRoutes));
 
-});
+// });
 
 
 // routes for the app
