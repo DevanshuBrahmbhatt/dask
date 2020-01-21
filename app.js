@@ -7,8 +7,10 @@ const passport = require('passport');
 
 const authRoutes = require('./routes/auth');
 const profileRoutes=require('./routes/profile');
+const questionRoutes=require('./routes/questions');
+// const askquestionRoutes=require('./routes/askquestion');
 const passportSetup = require('./config/passport_setup');
-
+const cs = require('cookie-session')
 const conn = require('./config/database');
 const app = express();
 
@@ -17,7 +19,7 @@ const app = express();
 
 
 
-const {answer} = require('./routes/index');
+// const {answer} = require('./routes/index');
  
 const port = 5000;
 
@@ -29,6 +31,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); // parse form data client
 app.use(express.static(path.join(__dirname, 'public'))); // configure express to use public folder
 app.use(fileUpload()); // configure fileupload
+
+app.use(cs({
+	maxAge: 24*60*60*1000,
+	keys:'abc'
+}))
+
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -36,8 +44,19 @@ app.use(passport.session());
 
 
 app.use('/auth', authRoutes);
-app.use('/profile', profileRoutes);
+//app.use('/profile', profileRoutes);
+app.use('/questions',questionRoutes);
 
+
+// app.use('/askquestion',askquestionRoutes);
+
+
+app.get('/profile',(req,res)=>{
+
+res.json(authRoutes);
+console.log(res.json(authRoutes));
+
+});
 
 
 // routes for the app
@@ -62,18 +81,27 @@ app.get('/', (req, res) => {
 
 
 app.get('/askquestion', (req, res)=> {
-    res.render('askquestion');
-});
-app.get('/question', (req, res)=> {
-    res.render('question');
-});
-app.get('/questions', (req, res)=> {
-    res.render('questions');
+    res.sendFile('askquestion.html',{root:__dirname});
 });
 
-app.get('/answer', (req, res)=> {
-    res.render('answer');
+app.post('/submit',(req,res)=>{
+    console.log("getting submit");
+console.log(req.body);
+//res.render("askquestion");
 });
+
+// app.get('/question', (req, res)=> {
+//     res.render('question');
+// });
+
+
+// app.get('/questions', (req, res)=> {
+//     res.render('questions');
+// });
+
+// app.get('/answer', (req, res)=> {
+//     res.render('answer');
+// });
 
 
 

@@ -5,29 +5,20 @@ const conn=require('./database');
 
 
 
-passport.serializeUser(( profile, done) => {
+passport.serializeUser((profile, done) => {
 
-    done(null, profile.google_id);
- 
+    done(null, profile);
+  
 });
 
-passport.session((req,res)=>{
-
-    req.id = { id:'profile.google_id' };
-
-
-
-});
-
-passport.deserializeUser((profile,done)=>{
+passport.deserializeUser((id,done)=>{
 
     
-    conn.query('SELECT * FROM profile WHERE  google_id=?',profile.id,(err,response,meta)=>{
+    conn.query('SELECT * FROM profile WHERE google_id=?',id,(err,response,meta)=>{
+       console.log(id);
         done(null,response[0])
     });
 
-  //  console.log(profile);
-    
 });
 
 passport.use(
@@ -43,14 +34,12 @@ passport.use(
         // passport callback function
         console.log('passport callback function fired:');
 
+        
          var name =profile._json.name;
-         //console.log(name);
          var id=profile.id;
          var picture=profile._json.picture;
          
-        // console.log(id);
-         // console.log(picture);
-        //    console.log(profile);
+     
 
 
         conn.query("select * from profile where google_id=?",id,(err,response,meta)=>{
@@ -80,7 +69,8 @@ passport.use(
                             else{
                                 console.log(result);
                                 done(null, {"name":name,"google_id":id,"picture":picture});
-                                                          }
+                                                          
+                            }
 
                     });
                 }
@@ -91,3 +81,4 @@ passport.use(
 
     })
 )
+

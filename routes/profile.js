@@ -5,25 +5,29 @@ const conn=require('../config/database');
 
 
 
-var id;
-passport.deserializeUser((profile, done) => {
+router.get('/', (req, res) => {
+
+console.log(profile);
+
+    console.log("getting req");
+    console.log(req.id);
+
+   // req.json(Profile);
+    // console.log( req.json(profile));
 
 
-      id=profile.id;
-     done(null,profile);
-    });
+    // id=req.body.id;
 
-
-          //Profile  passport_setup vadi ahiya joiea 6iea.
-
-
+    
+  
     var personobj={};
 
 console.log("here pro");
     
-conn.query('SELECT * FROM profile WHERE  google_id=?',[id], (err, result) => {
+conn.query('SELECT * FROM profile where google_id=?',profile.id, (err, result) => {
     
     console.log(conn.query);
+
     if(err){
 
         console.log(err);
@@ -33,11 +37,14 @@ conn.query('SELECT * FROM profile WHERE  google_id=?',[id], (err, result) => {
 
         personobj={print:result};
         console.log(personobj);
-    //    res.render("profile");
+         res.render("profile");
         
     }
 });
 
+
+   
+});
 
 
 
