@@ -24,6 +24,25 @@ conn.query('select * from questions where q_id=?',q_id,(err,result)=>{
 });
 
 
+
+router.get('/view/:id',(req,res)=>{
+
+    var q_id= req.params.id;
+    console.log(q_id);
+    
+    conn.query('select * from answers where q_id=?',q_id,(err,result)=>{
+    
+            
+        res.render("question",{data:result});
+    
+    
+    });
+    
+    
+    
+    });
+    
+
 router.post('/add',(req,res)=>{
 
     var post = {

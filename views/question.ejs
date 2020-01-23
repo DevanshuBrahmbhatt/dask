@@ -7,7 +7,17 @@
 <div class="container">
 
 <br><h4 class="display-3"><blockquote>Q-A</blockquote></h4>
-<!--------first question ----------->
+
+<!--------Questions ----------->
+
+
+
+<% if(data.length){
+
+    for(var i = 0; i< data.length; i++) {%> 
+
+
+
 	<div class="card">
 	<div class="card-header">
 	<h4 class="text-left"> Question</h4>
@@ -15,8 +25,8 @@
 		
 	<div class="card-body">
 		<blockquote class="blockquote text-left">
-		<p class="mb-0">Why we required Js in 2019?</p>
-		<footer class="blockquote-footer">Asked by <cite title="Source Title">DevanshuBrahmbhatt</cite></footer>
+		<p class="mb-0"><%=data[i].question%></p>
+		<footer class="blockquote-footer">Asked by <cite title="Source Title"><%=data[i].p_id%></cite></footer>
 		</blockquote>
 	</div>
 		
@@ -26,26 +36,11 @@
 		</div>
 	</div>
 
-<!---first complete-------------->
-<div class="card">
-	<div class="card-header">
-	<h4 class="text-left">Answer</h4>
-	
-		</div>
-		
-	<div class="card-body">
-		<blockquote class="blockquote text-left">
-		<p class="mb-0">Because it the most important tool in backend </p>
-		<footer class="blockquote-footer">Answerd by <cite title="Source Title">Prof.Mukesh Goswami</cite></footer>
-		</blockquote>
-	</div>
-		
-		<div class="card-footer">
-		   <a href="#" class="btn btn-primary">ReadMore</a>
-		  <a href="#" class="btn btn-primary">Share</a>
-		</div>
-	</div>
+<!--------Questions-------------->
 
+
+
+<!--Answers----->
 
 <div class="card">
 	<div class="card-header">
@@ -55,8 +50,8 @@
 		
 	<div class="card-body">
 		<blockquote class="blockquote text-left">
-		<p class="mb-0">Used in validation</p>
-		<footer class="blockquote-footer">Answerd by <cite title="Source Title">Ramya Surti (CE 5th sem)</cite></footer>
+		<p class="mb-0"><%=data[i].answer%></p>
+		<footer class="blockquote-footer">Answerd by <cite title="Source Title"><%=data[i].p_id%></cite></footer>
 		</blockquote>
 	</div>
 		
@@ -65,11 +60,27 @@
 		  <a href="#" class="btn btn-primary">Share</a>
 		</div>
 	</div>
-
-
-
-
 </div>
+
+<% }
+
+}
+
+
+else{
+   %>
+  <tr>
+	 <td colspan="3">No user</td>
+  </tr>
+ <%
+ }
+  %>  
+
+
+<!--Answers----->
+
+
+
 <%- include  ( "partials/footer") %>
 
 </body>
