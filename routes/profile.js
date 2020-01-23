@@ -5,12 +5,14 @@ const conn=require('../config/database');
 
 
 
-router.get('/', (req, res) => {
+router.get('/' ,(req, res) => {
 
 // console.log(profile);
 
+
+
     console.log("getting req");
-    // console.log(req.id);
+    // console.log(req.user.id);
 
    // req.json(Profile);
     // console.log( req.json(profile));

@@ -23,14 +23,19 @@ router.get(
 );
 
 // callback route for google to redirect to
-router.get("/google/redirect", passport.authenticate("google"), (req, res) => {
+router.get("/google/redirect/", passport.authenticate("google"), (req, res) => {
 
+  // console.log(req.params.id);
 res.render("index");
- console.log(req.user);
+//  console.log(req.user);
 
 });
   console.log("getting index");
 
+
+
+
+  
   //res.redirect('index.ejs');
 
 module.exports = router;
