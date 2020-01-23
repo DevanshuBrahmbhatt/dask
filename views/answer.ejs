@@ -4,10 +4,15 @@
 <div class="container">
 
 
+  <% if(data.length){
+
+    for(var i = 0; i< data.length; i++) {%> 
+
+    
 <div class="card text-center">
 
   <div class="card-header">
-  <form>
+  <form  action="/answer/add" method="POST">
   
      <div class="row">
     <div class="col">
@@ -15,18 +20,34 @@
 	<div class="form-group row">
     <label for="title" class="col-sm-2 col-form-label"><h3>Question</h3></label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="title" placeholder="Why we required Js in 2019?" disabled>
-    </div>
-  </div>
-	
-      </div>
-  </div><br>
-  
-  
-     <div class="row">
-    <div class="col">
-	
-	<div class="form-group row">
+      <p class="mb-0"><%=data[i].question%></p>
+
+      <% }
+
+    }
+    
+    
+    else{
+       %>
+      <tr>
+         <td colspan="3">No user</td>
+      </tr>
+     <%
+     }
+      %>  
+    
+
+</div>
+</div>
+
+</div>
+</div><br>
+
+
+<div class="row">
+  <div class="col">
+
+    <!-- <div class="form-group row">
     <label for="title" class="col-sm-2 col-form-label"><h4>Related</h4></label>
     <div class="col-sm-10">
      <select  class="form-control" id="select">
@@ -36,47 +57,48 @@
       </select>
 	   </div>
   </div>
-	
+	 -->
+  </div>
+</div>
+
+
+
+</div>
+
+<div class="card-body">
+  <h5 class="card-title"></h5>
+  <p class="card-text">
+
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Write</span>
       </div>
-  </div>
-  
- 
-  
-  </div>
-  
-  </form>
-  <div class="card-body">
-    <h5 class="card-title"></h5>
-    <p class="card-text">
-	
-	<div class="input-group">
-  <div class="input-group-prepend">
-    <span class="input-group-text">Write</span>
-  </div>
-  <textarea rows="10" class="form-control" aria-label="With textarea"></textarea>
-</div>
-	
-	
-	</p>
-     
-  </div>
-  
-  
-  
-  <div class="card-footer text-muted">
-    <a href="#" class="btn btn-primary">Drop</a>
- 
-  </div>
-  
-  
-</div>
+
+      <textarea name="answer" rows="10" class="form-control" aria-label="With textarea"></textarea>
+    </div>
+
+
+  </p>
 
 </div>
 
+
+
+<div class="card-footer text-muted">
+  <input type="submit" value="Submit" />
+
+</div>
+
+
+</form>
+</div>
+
+
+</div>
 
 
 </body>
+
 </html>
 
 <%- include  ( "partials/footer") %>
-

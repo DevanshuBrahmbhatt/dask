@@ -20,7 +20,7 @@ conn.query('select * from questions where authenticate=1',(err,result)=>{
 
     else{
         console.log(result);
-         res.render("questions");
+         res.render("questions",{data:result});
         
     }
 

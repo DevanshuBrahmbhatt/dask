@@ -11,6 +11,7 @@ const authRoutes = require('./routes/auth');
 const profileRoutes=require('./routes/profile');
 const questionRoutes=require('./routes/questions');
 const askquestionRoutes=require('./routes/askquestion');
+const answerRoutes=require('./routes/answer');
 const passportSetup = require('./config/passport_setup');
 const cs = require('cookie-session')
 const conn = require('./config/database');
@@ -50,9 +51,8 @@ app.use(passport.session());
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
 app.use('/questions',questionRoutes);
-
-
 app.use('/askquestion',askquestionRoutes);
+app.use('/answer',answerRoutes);
 
 
 // app.get('/profile',(req,res)=>{
@@ -93,9 +93,6 @@ app.get('/questions', (req, res)=> {
     res.render('questions');
 });
 
-app.get('/answer', (req, res)=> {
-    res.render('answer');
-});
 
 
 

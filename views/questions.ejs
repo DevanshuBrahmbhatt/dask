@@ -6,25 +6,12 @@
 <div class="container">
 
 <br><h4 class="display-3"><blockquote>Questions</blockquote></h4>
-<!--------first question ----------->
-	<div class="card">
-	<div class="card-header">
-		</div>
-		
-	<div class="card-body">
-		<blockquote class="blockquote text-left">
-		<p class="mb-0">Why we required Js in 2019?</p>
-		<footer class="blockquote-footer">Asked by <cite title="Source Title">DevanshuBrahmbhatt</cite></footer>
-		</blockquote>
-	</div>
-		
-		<div class="card-footer">
-		 <a href="answer.html" class="btn btn-primary">Answer</a>
-		  <a href="#" class="btn btn-primary">Share</a>
-		</div>
-	</div>
 
-<!---first complete-------------->
+
+<% if(data.length){
+
+	
+	for(var i = 0; i< data.length; i++) {%> 
 
 
 <!--------first question ----------->
@@ -34,97 +21,31 @@
 		
 	<div class="card-body">
 		<blockquote class="blockquote text-left">
-		<p class="mb-0">Why we required Js in 2019?</p>
-		<footer class="blockquote-footer">Asked by <cite title="Source Title">DevanshuBrahmbhatt</cite></footer>
+		<p class="mb-0"><%= data[i].question%></p>
+		<footer class="blockquote-footer">Asked by <cite title="Source Title"><%= data[i].p_id%></cite></footer>
 		</blockquote>
 	</div>
 		
 		<div class="card-footer">
-		 <a href="#" class="btn btn-primary">Answer</a>
-		  <a href="#" class="btn btn-primary">Share</a>
+		 <a href="answer/<%=data[i].q_id%>" class="btn btn-primary">Give Answer</a>
+		  <a href="answer/view/:<%=data[i].q_id%>" class="btn btn-primary">View Answers</a>
 		</div>
 	</div>
 
-<!---first complete-------------->
 
-<!--------first question ----------->
-	<div class="card">
-	<div class="card-header">
-		</div>
-		
-	<div class="card-body">
-		<blockquote class="blockquote text-left">
-		<p class="mb-0">Why we required Js in 2019?</p>
-		<footer class="blockquote-footer">Asked by <cite title="Source Title">DevanshuBrahmbhatt</cite></footer>
-		</blockquote>
-	</div>
-		
-		<div class="card-footer">
-		 <a href="#" class="btn btn-primary">Answer</a>
-		  <a href="#" class="btn btn-primary">Share</a>
-		</div>
-	</div>
+	<% }
 
-<!---first complete-------------->
+}
 
-<!--------first question ----------->
-	<div class="card">
-	<div class="card-header">
-		</div>
-		
-	<div class="card-body">
-		<blockquote class="blockquote text-left">
-		<p class="mb-0">Why we required Js in 2019?</p>
-		<footer class="blockquote-footer">Asked by <cite title="Source Title">DevanshuBrahmbhatt</cite></footer>
-		</blockquote>
-	</div>
-		
-		<div class="card-footer">
-		 <a href="#" class="btn btn-primary">Answer</a>
-		  <a href="#" class="btn btn-primary">Share</a>
-		</div>
-	</div>
 
-<!---first complete-------------->
-
-<!--------first question ----------->
-	<div class="card">
-	<div class="card-header">
-		</div>
-		
-	<div class="card-body">
-		<blockquote class="blockquote text-left">
-		<p class="mb-0">Why we required Js in 2019?</p>
-		<footer class="blockquote-footer">Asked by <cite title="Source Title">DevanshuBrahmbhatt</cite></footer>
-		</blockquote>
-	</div>
-		
-		<div class="card-footer">
-		 <a href="#" class="btn btn-primary">Answer</a>
-		  <a href="#" class="btn btn-primary">Share</a>
-		</div>
-	</div>
-
-<!---first complete-------------->
-
-<!--------first question ----------->
-	<div class="card">
-	<div class="card-header">
-		</div>
-		
-	<div class="card-body">
-		<blockquote class="blockquote text-left">
-		<p class="mb-0">Why we required Js in 2019?</p>
-		<footer class="blockquote-footer">Asked by <cite title="Source Title">DevanshuBrahmbhatt</cite></footer>
-		</blockquote>
-	</div>
-		
-		<div class="card-footer">
-		 <a href="#" class="btn btn-primary">Answer</a>
-		  <a href="#" class="btn btn-primary">Share</a>
-		</div>
-	</div>
-
+else{
+	 %>
+	<tr>
+	   <td colspan="3">No user</td>
+	</tr>
+ <%
+ }
+  %>  
 <!---first complete-------------->
 
 

@@ -7,26 +7,25 @@ const conn=require('../config/database');
 
 router.get('/' ,(req, res) => {
 
-// console.log(profile);
 
+    var personobj={};
 
-
-    console.log("getting req");
-    // console.log(req.user.id);
-
-   // req.json(Profile);
-    // console.log( req.json(profile));
-
-
-    // id=req.body.id;
+    passport.deserializeUser((id,done)=>{
 
     
-  
-    var personobj={};
+        conn.query('SELECT * FROM profile WHERE google_id=?',id,(err,user)=>{
+           console.log(user);
+           done(null,user);
+        });
+    
+    });
+    
+
+// console.log(de);
 
 console.log("here pro");
     
-conn.query('SELECT * FROM profile where google_id=?',req.id, (err, result) => {
+conn.query('SELECT * FROM profile where google_id=?',userId, (err, result) => {
     
     console.log(conn.query);
 
@@ -38,7 +37,6 @@ conn.query('SELECT * FROM profile where google_id=?',req.id, (err, result) => {
     else{
 
         personobj={print:result};
-        // console.log(personobj);
          res.render("profile");
         
     }

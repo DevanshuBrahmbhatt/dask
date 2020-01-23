@@ -7,14 +7,14 @@ const conn=require('./database');
 
 passport.serializeUser((user, done) => {
 
-    done(null, user);
+    done(null, user.id);
   
 });
 
-passport.deserializeUser((user,done)=>{
+passport.deserializeUser((id,done)=>{
 
     
-    conn.query('SELECT * FROM profile WHERE google_id=?',user.id,(err,user)=>{
+    conn.query('SELECT * FROM profile WHERE google_id=?',id,(err,user)=>{
     //    console.log(id);
        done(null,user);
     });
