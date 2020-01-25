@@ -5,7 +5,27 @@ const conn=require('../config/database');
 
 
 
-router.get('/' ,(req, res) => {
+function isAuth(req,res,next){
+
+    var LocalStorage = require('node-localstorage').LocalStorage;
+    localStorage = new LocalStorage('./scratch');
+    var userId=localStorage.getItem('userId');
+    if(userId){
+
+        return next();
+    }
+    else{
+
+        res.redirect('/auth/google');
+       
+    }
+
+
+
+}
+
+
+router.get('/',isAuth,(req, res) => {
 
 
          if (typeof localStorage === "undefined" || localStorage === null) {

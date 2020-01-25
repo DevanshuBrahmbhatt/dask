@@ -56,23 +56,6 @@ app.use('/askquestion',askquestionRoutes);
 app.use('/answer',answerRoutes);
 
 
-// app.get('/profile',(req,res)=>{
-
-// // res.json(authRoutes);
-// // console.log(res.json(authRoutes));
-
-// });
-
-
-// routes for the app
-
-// app.get('/', getHomePage);
-// app.get('/answer',answer);
-//app.get('/',index)
-/*app.get('/edit/:id', editPlayerPage);
-app.get('/delete/:id', deletePlayer);
-app.post('/add', addPlayer);
-app.post('/edit/:id', editPlayer);*/
 
 
 
@@ -85,14 +68,6 @@ app.get('/', (req, res) => {
 
 
 
-// app.get('/question', (req, res)=> {
-//     res.render('question');
-// });
-
-
-// app.get('/questions', (req, res)=> {
-//     res.render('questions');
-// });
 
 
 

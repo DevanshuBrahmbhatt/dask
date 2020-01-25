@@ -6,7 +6,35 @@ const conn=require('../config/database');
 const app = express();
 
 
-router.get('/:id',(req,res)=>{
+
+
+
+
+function isAuth(req,res,next){
+
+    var LocalStorage = require('node-localstorage').LocalStorage;
+    localStorage = new LocalStorage('./scratch');
+    var userId=localStorage.getItem('userId');
+    if(userId){
+
+        return next();
+    }
+    else{
+
+        res.redirect('/auth/google');
+       
+    }
+
+
+
+}
+
+
+
+
+
+
+router.get('/:id',isAuth,(req,res)=>{
 
 var q_id= req.params.id;
 console.log(q_id);

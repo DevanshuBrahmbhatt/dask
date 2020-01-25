@@ -6,7 +6,31 @@ const conn=require('../config/database');
 const app = express();
 
 
-router.get('/',(req,res)=>{
+
+
+
+function isAuth(req,res,next){
+
+    var LocalStorage = require('node-localstorage').LocalStorage;
+    localStorage = new LocalStorage('./scratch');
+    var userId=localStorage.getItem('userId');
+    if(userId){
+
+        return next();
+    }
+    else{
+
+        res.redirect('/auth/google');
+       
+    }
+
+
+
+}
+
+
+
+router.get('/',isAuth,(req,res)=>{
 
 
 res.render('askquestion');
@@ -16,17 +40,18 @@ res.render('askquestion');
 
 
 
-router.post('/add', (req, res) => {
+router.post('/add', isAuth,(req, res) => {
 
  
         var post = {
             question: req.body.question,
+            p_id:4,
             
         }
 
 
     // let post={question:`${req.body.question}` };
-    let sql='INSERT INTO test set ?';
+    let sql='INSERT INTO questions set ?';
     let query=conn.query(sql,post,(err,result)=>{
     
             if(err){
@@ -37,8 +62,8 @@ router.post('/add', (req, res) => {
             }
             else{
             console.log(result);
-            res.send("inserted");
-            res.redirect("index");
+            // res.send("inserted");
+            res.render("index");
 
             }
 
