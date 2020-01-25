@@ -8,20 +8,19 @@ const conn=require('../config/database');
 router.get('/' ,(req, res) => {
 
 
-    var personobj={};
+         if (typeof localStorage === "undefined" || localStorage === null) {
+            var LocalStorage = require('node-localstorage').LocalStorage;
+            localStorage = new LocalStorage('./scratch');
+          }
 
-    passport.deserializeUser((id,done)=>{
 
-    
-        conn.query('SELECT * FROM profile WHERE google_id=?',id,(err,user)=>{
-           console.log(user);
-           done(null,user);
-        });
-    
-    });
-    
+           
+          console.log(localStorage.getItem('userId'));
+          var userId=localStorage.getItem('userId');
 
-// console.log(de);
+
+
+
 
 console.log("here pro");
     
@@ -36,8 +35,8 @@ conn.query('SELECT * FROM profile where google_id=?',userId, (err, result) => {
 
     else{
 
-        personobj={print:result};
-         res.render("profile");
+        console.log(result);
+         res.render("profile",{data:result});
         
     }
 });

@@ -59,14 +59,20 @@
 
 
 
+    <% if(data.length){
+
+        for(var i = 0; i< data.length; i++) {%> 
+    
     
 
     <div class="card">
-        <img src="" alt="John" style="width:100%">
 
-        <h1>dd</h1>
 
-        <p class="title">CEO & Founder, Example</p>
+        <img src="<%=data[i].picture%>"  alt="<%=data[i].name%>" style="width:100%">
+
+        <h1><%=data[i].name%></h1>
+
+        <p class="title"><%=data[i].p_id%></p>
 
         <p>Harvard University</p>
         <div style="margin: 24px 0;">
@@ -79,6 +85,21 @@
     </div>
 
     
+
+
+    <% }
+
+}
+
+
+else{
+   %>
+  <tr>
+     <td colspan="3">No user</td>
+  </tr>
+ <%
+ }
+  %>  
 
 
 

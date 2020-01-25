@@ -1,4 +1,5 @@
 const express = require('express');
+
 const fileUpload = require('express-fileupload');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
@@ -65,7 +66,7 @@ app.use('/answer',answerRoutes);
 
 // routes for the app
 
-//app.get('/', getHomePage);
+// app.get('/', getHomePage);
 // app.get('/answer',answer);
 //app.get('/',index)
 /*app.get('/edit/:id', editPlayerPage);
@@ -76,7 +77,7 @@ app.post('/edit/:id', editPlayer);*/
 
 
 
-// index page 
+// // index page 
 app.get('/', (req, res) => {
 
     res.render('index');
@@ -84,14 +85,14 @@ app.get('/', (req, res) => {
 
 
 
-app.get('/question', (req, res)=> {
-    res.render('question');
-});
+// app.get('/question', (req, res)=> {
+//     res.render('question');
+// });
 
 
-app.get('/questions', (req, res)=> {
-    res.render('questions');
-});
+// app.get('/questions', (req, res)=> {
+//     res.render('questions');
+// });
 
 
 

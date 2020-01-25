@@ -4,19 +4,18 @@ const keys = require('./keys');
 const conn=require('./database');
 
 
+passport.serializeUser((profile, done) => {
 
-passport.serializeUser((user, done) => {
-
-    done(null, user.id);
+    done(null, profile);
   
 });
 
 passport.deserializeUser((id,done)=>{
 
     
-    conn.query('SELECT * FROM profile WHERE google_id=?',id,(err,user)=>{
-    //    console.log(id);
-       done(null,user);
+    conn.query('SELECT * FROM profile WHERE google_id=?',id,(err,response,meta)=>{
+       console.log(id);
+        done(null,response[0])
     });
 
 });
@@ -39,6 +38,15 @@ passport.use(
          var id=profile.id;
          var picture=profile._json.picture;
          
+
+         if (typeof localStorage === "undefined" || localStorage === null) {
+            var LocalStorage = require('node-localstorage').LocalStorage;
+            localStorage = new LocalStorage('./scratch');
+          }
+           
+          localStorage.setItem('userId', profile.id);
+          console.log(localStorage.getItem('userId'));
+
      
 
 
