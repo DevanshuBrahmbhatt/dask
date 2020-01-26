@@ -58,7 +58,7 @@ router.get('/view/:id',(req,res)=>{
     var q_id= req.params.id;
     console.log(q_id);
     
-    conn.query('select * from answers where q_id=?',q_id,(err,result)=>{
+    conn.query('select * from answers where authenticate=1 and q_id=?',q_id,(err,result)=>{
     
             
         res.render("question",{data:result});

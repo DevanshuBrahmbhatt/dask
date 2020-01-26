@@ -18,19 +18,24 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style/style.css">
+ 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
 
   <meta name="google-signin-scope" content="profile email">
   <meta name="google-signin-client_id"
     content="852660001860-u5c8a8bk5t7eh5ht16s24hpp839u3527.apps.googleusercontent.com">
   <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
 </head>
 <style>
   /* {
@@ -39,6 +44,7 @@
 
   body {
     font-family: Arial, Helvetica, sans-serif;
+    background-color:white;
   }
 
   /* Float four columns side by side */
@@ -134,7 +140,7 @@
 
   .vertical-menu a {
     background-color: white;
-    color: black;
+    color: white;
     display: block;
     padding: 12px;
     text-decoration: none;
@@ -147,6 +153,16 @@
   .vertical-menu a.active {
     color: white;
   }
+  .navbar{
+
+    background-color: #265077 !important;
+  }
+  .btn{
+
+    background-color: #265077 !important;
+    color: #f1f1f1;
+  }
+  
 </style>
 
 
@@ -193,18 +209,16 @@
 
 
 
-
           <li class="nav-item">
-            <a class="nav-link" href="/auth/google">Login</a>
+            <a class="nav-link" id="login" href="/auth/google">Login</a>
           </li>
 
 
 
          
           <li class="nav-item">
-            <a class="nav-link" href="/auth/logout">Logout</a>
+            <a class="nav-link" id="logout" href="/auth/logout">Logout</a>
           </li>
-
 
 
 
@@ -214,6 +228,32 @@
 
       </div>
     </nav>
+
+
+    <script>
+
+
+       var userId=localStorage.getItem('userId');
+    
+  
+         if(userId){
+
+          document.getElementById("login").style.visibility = "hidden";
+  
+         }
+         else{
+      document.getElementById("logout").style.visibility = "hidden";
+         }
+         
+
+
+        
+      
+  
+  </script>
+  
+
+
     <br>
   </div><br><br>
   <!-------------navbarcompleted ---------------------->
