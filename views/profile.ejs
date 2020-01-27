@@ -1,7 +1,3 @@
-
-
-
-
 <!-- views/partials/navbar.ejs -->
 <navbar>
     <%- include  ( "partials/navbar") %>
@@ -16,75 +12,104 @@
     <style>
         .card {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            max-width: 300px;
-            margin: auto;
-            text-align: center;
-            font-family: arial;
+            margin-top: 0px;
+            /* max-width: 300px;
+            margin: auto; */
+            /* text-align: center; */
+            /* font-family: arial; */
         }
 
-        .title {
-            color: grey;
-            font-size: 18px;
+        .de {
+
+            background-color: #215077;
+            /* color: white; */
         }
 
-        button {
-            border: none;
-            outline: 0;
-            display: inline-block;
-            padding: 8px;
-            color: white;
-            background-color: #000;
-            text-align: center;
-            cursor: pointer;
-            width: 100%;
-            font-size: 18px;
-        }
+        .list-group-item{
 
-        a {
-            text-decoration: none;
-            font-size: 22px;
-            color: black;
-        }
 
-        button:hover,
-        a:hover {
-            opacity: 0.7;
+            background-color: #215077;
+            color: aliceblue !important;
+
         }
     </style>
 </head>
 
 <body>
 
-    <h2 style="text-align:center">User Profile Card</h2>
+
+    <div class="container">
+        <br>
+
+        <div class="row">
+
+
+            <div class="col-sm-4">
+
+                <% if(data.length){
+
+        for(var i = 0; i< data.length; i++) {%>
 
 
 
-    <% if(data.length){
-
-        for(var i = 0; i< data.length; i++) {%> 
-    
-    
-
-    <div class="card">
+                <div class="card">
 
 
-        <img src="<%=data[i].picture%>"  alt="<%=data[i].name%>" style="width:100%">
+                    <img src="<%=data[i].picture%>" alt="<%=data[i].name%>" style="width:100%">
 
-        <h1><%=data[i].name%></h1>
 
-        <p class="title"><%=data[i].p_id%></p>
+                    <h1><%=data[i].name%></h1>
 
-        <p>Harvard University</p>
-        <div style="margin: 24px 0;">
-            <a href="#"><i class="fa fa-dribbble"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-facebook"></i></a>
+                    <p class="title"><%=data[i].p_id%></p>
+
+
+                </div>
+
+
+
+
+
+            </div>
+
+            <div class="col-sm-8">
+
+              <h4  style="font-size:x-large ;"><strong>Questions you have asked!!</strong></h4><br>
+
+
+                <div class="list-group">
+               
+
+                        <div class="de">
+
+                    <div class="row">
+
+                        
+
+                        <div class="col-sm-9">
+
+
+                            <a class="list-group-item">i. daa.question</a>
+                        </div>
+
+                        <div class="col-sm-3">
+
+
+                            <a href="answer/view/<%=data[i].q_id%>" class="btn">View Answers</a>
+                        </div>
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+
         </div>
-        <p><button>Contact</button></p>
-    </div>
 
-    
+    </div>
 
 
     <% }
@@ -94,15 +119,12 @@
 
 else{
    %>
-  <tr>
-     <td colspan="3">No user</td>
-  </tr>
- <%
+    <tr>
+        <td colspan="3">No user</td>
+    </tr>
+    <%
  }
-  %>  
-
-
-
+  %>
     <footer>
 
         <%- include  ( "partials/footer") %>
