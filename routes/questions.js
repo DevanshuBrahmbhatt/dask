@@ -5,12 +5,12 @@ const conn=require('../config/database');
 
 router.get('/', (req, res) => {
 
-conn.query('select * from questions where authenticate=1',(err,result)=>{
+conn.query('SELECT * FROM questions INNER JOIN profile on questions.p_id=profile.p_id  where authenticate=1',(err,result)=>{
 
 
 
     
-    console.log(conn.query);
+    // console.log(conn.query);
 
 
     if(err){
@@ -19,7 +19,7 @@ conn.query('select * from questions where authenticate=1',(err,result)=>{
     }
 
     else{
-        console.log(result);
+        // console.log(result);
          res.render("questions",{data:result});
         
     }

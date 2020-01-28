@@ -58,7 +58,7 @@ router.get('/view/:id',(req,res)=>{
     var q_id= req.params.id;
     console.log(q_id);
     
-    conn.query('select * from answers where authenticate=1 and q_id=?',q_id,(err,result)=>{
+    conn.query('SELECT * from answers INNER JOIN questions on answers.q_id=questions.q_id INNER JOIN profile on questions.p_id=profile.p_id where authenticate=1 and q_id=?',q_id,(err,result)=>{
     
             
         res.render("question",{data:result});
