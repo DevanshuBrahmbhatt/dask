@@ -8,7 +8,8 @@ const conn=mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
     password : '',
-    database : 'dcommunity'
+    database : 'dcommunity',
+    multipleStatements: true
 
 });
 
