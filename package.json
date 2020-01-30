@@ -4,9 +4,7 @@
   "description": "1st version ",
   "main": "app.js",
   "scripts": {
-
-    "build": "bower install && grunt build",
-  "start": "nf start"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "BDTG",
   "license": "ISC",
