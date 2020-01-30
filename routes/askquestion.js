@@ -33,7 +33,34 @@ function isAuth(req,res,next){
 router.get('/',isAuth,(req,res)=>{
 
 
+
+var LocalStorage = require('node-localstorage').LocalStorage;
+localStorage = new LocalStorage('./scratch');
+var userId=localStorage.getItem('userId');
+
+
+conn.query('SELECT * FROM PROFILE where google_id=?',userId,(err,result)=>{
+if(err){
+    console.log(err);
+}
+console.log(result[0].p_id);
+
+
+
+    if (typeof localStorage === "undefined" || localStorage === null) {
+        var LocalStorage = require('node-localstorage').LocalStorage;
+        localStorage = new LocalStorage('./scratch');
+      }
+       
+      localStorage.setItem('p_id', result[0].p_id);
+
+
+
+});
+
+
 res.render('askquestion');
+
 
 });
 
@@ -42,10 +69,15 @@ res.render('askquestion');
 
 router.post('/add', isAuth,(req, res) => {
 
+    var LocalStorage = require('node-localstorage').LocalStorage;
+    localStorage = new LocalStorage('./scratch');
+    var p_id=localStorage.getItem('p_id');
+
  
         var post = {
             question: req.body.question,
-            p_id:4,
+          p_id:p_id,
+            // d_id:req.body.d_id
             
         }
 

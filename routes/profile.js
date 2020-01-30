@@ -42,11 +42,11 @@ router.get('/',isAuth,(req, res) => {
 
 
 
-console.log("here pro");
+// console.log("here pro");
     
 conn.query('SELECT * FROM questions INNER JOIN profile on questions.p_id=profile.p_id  where authenticate=1 and google_id=?',userId, (err, result) => {
     
-    console.log(conn.query);
+    // console.log(conn.query);
 
     if(err){
 

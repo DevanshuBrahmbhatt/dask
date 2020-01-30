@@ -19,16 +19,18 @@
 	<div class="form-group row">
     <label for="title" class="col-sm-2 col-form-label"><h4> <strong> Department </strong> </h4></label>
     <div class="col-sm-10">
-      <select class="form-control" id="fdepartment">
-	  <option value="" disabled selected type="hidden" id="department" required>Department</option>
-	  <option>CE</option>
-      <option>IT</option>
-      <option>CHEM</option>
-      <option>IC</option>
-      <option>EC</option>
-	  <option>CIVIL</option>
-	  <option>Mech</option>
-	   <option>Other</option>
+      <select class="form-control" id="d_id" name="d_id">
+
+    <option value="0" disabled selected type="hidden" name="d_id" required>Department</option>
+    
+
+	  <option value="1">University</option>
+      <option value="2" >Computer Science</option>
+      <option value="3">Electronics</option>
+      <option value="4">Chemical</option>
+      <option value="5">Civil</option>
+	  <option value="6">Mechanical</option>
+      <option value="7">Other</option>
 
 
 
@@ -45,36 +47,6 @@
  <!--reltaed topic start -------------->
  
  
-     <div class="row">
-    <div class="col">
-	
-	<div class="form-group row">
-    <label for="title" class="col-sm-2 col-form-label"><h4> <strong>  Related </strong> </h4></label>
-    <div class="col-sm-10">
-      <select class="form-control" id="fdepartment">
-	  <option value="" disabled selected type="hidden" id="related" required>Related</option>
-	  <option>C</option>
-      <option>C++</option>
-      <option>Java</option>
-      <option>Asp</option>
-      <option>Blockchain</option>
-	  <option>Encryption</option>
-	  <option>Hashing</option>
-	   <option>Web</option>
-	    <option>Other</option>
-
-
-
-    </select>
-
-	   </div>
-  </div>
-	
-      </div>
-  </div>
-  
-  <!--related topic------------->
-  
     <div class="row">
     <div class="col">
 	
@@ -94,7 +66,7 @@
   
   <div class="card-footer text-muted">
     <!-- <a href="#" class="btn btn-primary">Drop</a> -->
-    <input type="submit"></input>
+    <input type="submit" class="btn"></input>
 
   </form>
   
