@@ -1,83 +1,88 @@
 <!-----------------------question ---------------------->
 <%- include  ( "partials/navbar") %>
 
-<br><br><div class="container">
+<br><br>
+<div class="container">
 
 
-<div class="card text-center">
+  <div class="card text-center">
 
-  <div class="card-header">
-  <form  method="POST" action="/askquestion/add" >
-  <!----------------------------------1st-------->
-    <!----------------------------------1st-------->
-  
- <!----------------------------------2nd------->
-  
-     <div class="row">
-    <div class="col">
-	
-	<div class="form-group row">
-    <label for="title" class="col-sm-2 col-form-label"><h4> <strong> Department </strong> </h4></label>
-    <div class="col-sm-10">
-      <select class="form-control" id="d_id" name="d_id">
+    <div class="card-header">
+      <form method="POST" action="/askquestion/add">
+        <!----------------------------------1st-------->
+        <!----------------------------------1st-------->
 
-    <option value="0" disabled selected type="hidden" name="d_id" required>Department</option>
-    
+        <!----------------------------------2nd------->
 
-	  <option value="1">University</option>
-      <option value="2" >Computer Science</option>
-      <option value="3">Electronics</option>
-      <option value="4">Chemical</option>
-      <option value="5">Civil</option>
-	  <option value="6">Mechanical</option>
-      <option value="7">Other</option>
+        <div class="row">
+          <div class="col">
+
+            <div class="form-group row">
+              <label for="title" class="col-sm-2 col-form-label">
+                <h4> <strong> Department </strong> </h4>
+              </label>
+              <div class="col-sm-10">
+                <select class="form-control" id="d_id" name="d_id">
+
+                  <option value="0" disabled selected type="hidden" name="d_id" required>Department</option>
 
 
+                  <option value="1">University</option>
+                  <option value="2">Computer Science</option>
+                  <option value="3">Electronics</option>
+                  <option value="4">Chemical</option>
+                  <option value="5">Civil</option>
+                  <option value="6">Mechanical</option>
+                  <option value="7">Other</option>
 
-    </select>
 
-	   </div>
-  </div>
-	
-      </div>
-  </div>
-  
- <!-------dept complete-------------->
- 
- <!--reltaed topic start -------------->
- 
- 
-    <div class="row">
-    <div class="col">
-	
-	<div class="form-group row">
-    <label for="title" class="col-sm-2 col-form-label"><h4><strong> Question </strong> </h4></label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="question" name="question" placeholder="Enter Question">
+
+                </select>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-------dept complete-------------->
+
+        <!--reltaed topic start -------------->
+
+
+        <div class="row">
+          <div class="col">
+
+            <div class="form-group row">
+              <label for="title" class="col-sm-2 col-form-label">
+                <h4><strong> Question </strong> </h4>
+              </label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="question" name="question" placeholder="Enter Question">
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+
     </div>
-  </div>
-	
-      </div>
-  </div>
 
-  
-  
-  </div>
-  
-  <div class="card-footer text-muted">
-    <!-- <a href="#" class="btn btn-primary">Drop</a> -->
-    <input type="submit" class="btn"></input>
+    <div class="card-footer text-muted">
+      <!-- <a href="#" class="btn btn-primary">Drop</a> -->
+      <input type="submit" class="btn"></input>
 
-  </form>
-  
-  
-  
- 
- 
+      </form>
+
+
+
+
+
+    </div>
+
+
   </div>
-  
-  
-</div>
 
 </div>
 <!--------article complete----------->
@@ -91,6 +96,5 @@
 
 
 </body>
+
 </html>
-
-

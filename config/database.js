@@ -1,28 +1,23 @@
-const express=require('express');
-const mysql=require('mysql');
+const express = require('express');
+const mysql = require('mysql');
 
 //Create connection
 
-const conn=mysql.createConnection({
-
-    host     : 'localhost',
-    user     : 'root',
-    password : '',
-    database : 'dcommunity',
-    multipleStatements: true
-
+const conn = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'dcommunity',
+  multipleStatements: true,
 });
 
-//Connection 
-conn.connect((err)=>{
-if(err){
-    
-  console.log(err);
-}
+//Connection
+conn.connect((err) => {
+  if (err) {
+    console.log(err);
+  }
 
-console.log("Mysql connected");
-
+  console.log('Mysql connected');
 });
 
 module.exports = conn;
- 

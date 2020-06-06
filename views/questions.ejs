@@ -3,39 +3,41 @@
 <!-----------------------question ---------------------->
 
 <style>
-a:hover{
+	a:hover {
 
-color: whitesmoke;
-}
-
+		color: whitesmoke;
+	}
 </style>
 
 <div class="container">
 
-<br><h4 class="display-4" style="color: #215077;"><blockquote>Questions</blockquote></h4>
+	<br>
+	<h4 class="display-4" style="color: #215077;">
+		<blockquote>Questions</blockquote>
+	</h4>
 
 
-<% if(data.length){
+	<% if(data.length){
 
 	
-	for(var i = 0; i< data.length; i++) {%> 
+	for(var i = 0; i< data.length; i++) {%>
 
 
-<!--------first question ----------->
+	<!--------first question ----------->
 	<div class="card">
-	<div class="card-header">
+		<div class="card-header">
 		</div>
-		
-	<div class="card-body">
-		<blockquote class="blockquote text-left">
-		<p class="mb-0"><%= data[i].question%></p>
-		<footer class="blockquote-footer">Asked by <cite title="Source Title"><%= data[i].name%></cite></footer>
-		</blockquote>
-	</div>
-		
+
+		<div class="card-body">
+			<blockquote class="blockquote text-left">
+				<p class="mb-0"><%= data[i].question%></p>
+				<footer class="blockquote-footer">Asked by <cite title="Source Title"><%= data[i].name%></cite></footer>
+			</blockquote>
+		</div>
+
 		<div class="card-footer">
-		 <a href="answer/<%=data[i].q_id%>" class="btn btn-light">Give Answer</a>
-		  <a href="answer/view/<%=data[i].q_id%>" class="btn btn-light">View Answers</a>
+			<a href="answer/<%=data[i].q_id%>" class="btn btn-light">Give Answer</a>
+			<a href="answer/view/<%=data[i].q_id%>" class="btn btn-light">View Answers</a>
 		</div>
 	</div>
 
@@ -48,12 +50,12 @@ color: whitesmoke;
 else{
 	 %>
 	<tr>
-	   <td colspan="3">No user</td>
+		<td colspan="3">No user</td>
 	</tr>
- <%
+	<%
  }
-  %>  
-<!---first complete-------------->
+  %>
+	<!---first complete-------------->
 
 
 </div>
@@ -65,6 +67,5 @@ else{
 <%- include  ( "partials/footer") %>
 
 </body>
+
 </html>
-
-
