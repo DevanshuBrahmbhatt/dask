@@ -42,10 +42,10 @@ build/Release
 node_modules/
 jspm_packages/
 package-lock.json
- packages/
- /debug.log
- logs
- logs/
+packages/
+/debug.log
+logs
+logs/
 
 # TypeScript v1 declaration files
 typings/
@@ -112,3 +112,6 @@ dist
 # SQLite databases
 *.sqlite3
 package.json
+Procfile
+package .
+
