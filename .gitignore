@@ -110,3 +110,4 @@ dist
 
 # SQLite databases
 *.sqlite3
+package.json
